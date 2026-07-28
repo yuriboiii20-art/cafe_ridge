@@ -5,8 +5,8 @@ import { fadeIn, staggerContainer } from "../utils/animations";
 
 const Contact = () => {
   const contactInfo = [
-    { icon: <Phone size={20} />, title: "Call Us", detail: "+91 96209 96689", sub: "Mon-Fri, 9am-10pm" },
-    { icon: <Mail size={20} />, title: "Email Us", detail: "info@codeinnovativetechnologies.com", sub: "Response within 24hrs" },
+    { icon: <Phone size={20} />, title: "Call Us", detail: "+91 78927 24453", sub: "Mon-Fri, 9am-10pm" },
+    { icon: <Mail size={20} />, title: "Email Us", detail: "yakhyaqub789@gmail.com", sub: "Response within 24hrs" },
     { icon: <MapPin size={20} />, title: "Visit Us", detail: "B.M Road, Vijaya Nagar", sub: "Ramanagara, Karnataka 562159" },
     { icon: <Clock size={20} />, title: "Hours", detail: "10:00 AM - 11:00 PM", sub: "Open 7 Days a week" },
   ];
@@ -71,10 +71,25 @@ const Contact = () => {
             className="lg:col-span-2"
           >
             <GlassCard className="p-8 md:p-12 border-white/5">
-              <form className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <form 
+                className="grid grid-cols-1 md:grid-cols-2 gap-8"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const formData = new FormData(e.target);
+                  const name = formData.get("name");
+                  const email = formData.get("email");
+                  const subject = formData.get("subject");
+                  const message = formData.get("message");
+                  
+                  const mailtoUrl = `mailto:yakhyaqub789@gmail.com?subject=${encodeURIComponent(subject + " - " + name)}&body=${encodeURIComponent("From: " + name + " (" + email + ")\n\n" + message)}`;
+                  window.location.href = mailtoUrl;
+                }}
+              >
                 <div className="space-y-2 group">
                   <label className="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold ml-1 group-focus-within:text-primary transition-colors">Full Name</label>
                   <input 
+                    name="name"
+                    required
                     className="w-full p-4 bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:border-primary/50 focus:bg-white/10 transition-all" 
                     placeholder="John Doe" 
                   />
@@ -82,13 +97,16 @@ const Contact = () => {
                 <div className="space-y-2 group">
                   <label className="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold ml-1 group-focus-within:text-primary transition-colors">Email Address</label>
                   <input 
+                    name="email"
+                    type="email"
+                    required
                     className="w-full p-4 bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:border-primary/50 focus:bg-white/10 transition-all" 
                     placeholder="john@example.com" 
                   />
                 </div>
                 <div className="md:col-span-2 space-y-2 group">
                   <label className="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold ml-1 group-focus-within:text-primary transition-colors">Subject</label>
-                  <select className="w-full p-4 bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:border-primary/50 focus:bg-white/10 transition-all appearance-none">
+                  <select name="subject" className="w-full p-4 bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:border-primary/50 focus:bg-white/10 transition-all appearance-none">
                     <option className="bg-bg-main">General Inquiry</option>
                     <option className="bg-bg-main">Private Event</option>
                     <option className="bg-bg-main">Catering Services</option>
@@ -98,7 +116,9 @@ const Contact = () => {
                 <div className="md:col-span-2 space-y-2 group">
                   <label className="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold ml-1 group-focus-within:text-primary transition-colors">Your Message</label>
                   <textarea 
+                    name="message"
                     rows="5"
+                    required
                     className="w-full p-4 bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:border-primary/50 focus:bg-white/10 transition-all resize-none" 
                     placeholder="How can we help you today?" 
                   />
@@ -106,6 +126,7 @@ const Contact = () => {
 
                 <div className="md:col-span-2">
                   <motion.button 
+                    type="submit"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     className="w-full py-5 bg-primary hover:bg-primary/80 text-white rounded-2xl font-bold uppercase tracking-widest flex items-center justify-center gap-3 shadow-lg shadow-primary/20 transition-all"

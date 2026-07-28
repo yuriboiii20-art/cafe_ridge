@@ -29,7 +29,7 @@ const Navbar = () => {
   }, []);
 
   const openWhatsApp = () => {
-    const phoneNumber = "919620996689";
+    const phoneNumber = "917892724453";
     const msg = "Hello Cafe Ridge! I have an enquiry regarding my visit.";
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(msg)}`, "_blank");
   };

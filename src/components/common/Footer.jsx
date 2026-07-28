@@ -193,9 +193,9 @@ const Footer = () => {
           {/* Core Links & Legal */}
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <div className="flex gap-8 text-[10px] uppercase font-bold tracking-[0.2em] text-slate-500">
-              <a href="/privacy" className="hover:text-primary transition-colors">Privacy</a>
-              <a href="/terms" className="hover:text-primary transition-colors">Terms</a>
-              <a href="/accessibility" className="hover:text-primary transition-colors">Accessibility</a>
+              <Link to="/privacy" className="hover:text-primary transition-colors">Privacy</Link>
+              <Link to="/terms" className="hover:text-primary transition-colors">Terms</Link>
+              <Link to="/accessibility" className="hover:text-primary transition-colors">Accessibility</Link>
             </div>
 
             <motion.button 
