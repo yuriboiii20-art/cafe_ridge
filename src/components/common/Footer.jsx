@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { FaInstagram, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 import { NavLink, Link } from "react-router-dom";
+import LogoIcon from "./LogoIcon";
 import { cn } from "../../utils/utils"; // Assuming you have a cn utility
 
 const Footer = () => {
@@ -83,10 +84,18 @@ const Footer = () => {
           
           {/* Brand & Socials */}
           <div className="space-y-10">
-            <div className="space-y-6">
-              <h2 className="text-4xl font-black tracking-tighter text-white">
-                CAFE<span className="text-primary italic">RIDGE</span>
-              </h2>
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-primary/10 border border-primary/20 p-1.5 flex items-center justify-center">
+                  <LogoIcon className="w-full h-full text-primary" />
+                </div>
+                <h2 className="text-4xl font-black tracking-tighter text-white">
+                  CAFE<span className="text-primary italic">RIDGE</span>
+                </h2>
+              </div>
+              <p className="text-primary/90 font-serif italic text-sm tracking-wider">
+                Rise to the ridge
+              </p>
               <p className="text-slate-400 leading-relaxed text-base">
                 Synthesizing avant-garde culinary techniques with digital sophistication. A sanctuary for the modern connoisseur.
               </p>

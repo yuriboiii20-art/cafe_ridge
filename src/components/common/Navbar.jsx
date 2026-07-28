@@ -3,7 +3,7 @@ import { MessageCircle, ShoppingBag, Menu as MenuIcon, X, Sparkles } from "lucid
 import { NavLink } from "react-router-dom";
 import { getRestaurantStatus } from "../../utils/helpers";
 import { useCart } from "../../context/CartContext";
-
+import LogoIcon from "./LogoIcon";
 export const MobileMenuContext = createContext({
   showMenu: false,
   setShowMenu: () => {},
@@ -54,16 +54,16 @@ const Navbar = () => {
           {/* Brand Logo */}
           <NavLink to="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary via-amber-400 to-amber-600 p-[1px] shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform duration-300">
-              <div className="w-full h-full bg-bg-main rounded-[15px] flex items-center justify-center">
-                <Sparkles size={18} className="text-primary group-hover:rotate-12 transition-transform" />
+              <div className="w-full h-full bg-bg-main rounded-[15px] flex items-center justify-center p-1.5">
+                <LogoIcon className="w-full h-full text-primary group-hover:scale-110 transition-transform" />
               </div>
             </div>
             <div className="flex flex-col">
               <span className="font-serif font-black text-2xl tracking-wider text-text-base leading-none">
                 CAFE<span className="text-primary italic font-serif">RIDGE</span>
               </span>
-              <span className="text-[9px] uppercase tracking-[0.3em] text-text-muted font-bold mt-1">
-                Fine Dining & Craft
+              <span className="text-[9px] uppercase tracking-[0.25em] text-primary/80 font-bold mt-1">
+                Rise to the Ridge
               </span>
             </div>
           </NavLink>
