@@ -5,7 +5,7 @@ import {
   ShieldCheck, Clock, ExternalLink, Sparkles 
 } from "lucide-react";
 import { FaInstagram, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { cn } from "../../utils/utils"; // Assuming you have a cn utility
 
 const Footer = () => {
