@@ -4,26 +4,26 @@
   /* --- 🎨 CAFE RIDGE LUXURY DARK CYBER-GOLD / SAPPHIRE COLOR SYSTEM --- */
 
   /* Brand Constants — Luminous Electric Amber Gold */
-  --color-primary: #f59e0b;        /* Luminous Gold */
-  --color-primary-light: #fde047;  /* Bright Gold Flare */
-  --color-primary-dark: #d97706;   /* Deep Bronze Amber */
-  --color-gold: #fbbf24;
+  --color-primary: #d97706;        /* Luminous Deep Gold */
+  --color-primary-light: #f59e0b;  /* Bright Gold Flare */
+  --color-primary-dark: #b45309;   /* Deep Bronze Amber */
+  --color-gold: #d97706;
 
-  /* 🌑 DARK MODE — High Contrast Dark Slate/Midnight Quartz */
-  --color-bg-main: #090d16;        /* Deep Obsidian Navy */
-  --color-bg-soft: #111827;        /* Midnight Quartz */
+  /* 🌑 DARK MODE — High Contrast Dark Slate */
+  --color-bg-main: #090d16;
+  --color-bg-soft: #111827;
   --color-surface: rgba(245, 158, 11, 0.05);
   --color-border-subtle: rgba(255, 255, 255, 0.12);
   --color-text-base: #f8fafc;
   --color-text-muted: #94a3b8;
 
-  /* ☀️ LIGHT MODE — Crisp Luxury Porcelain & Warm Gold */
+  /* ☀️ LIGHT MODE — High-Contrast Dark Slate Text for High Legibility */
   --light-bg-main: #f8fafc;
   --light-bg-soft: #ffffff;
-  --light-surface: rgba(245, 158, 11, 0.04);
-  --light-border-subtle: rgba(0, 0, 0, 0.08);
-  --light-text-base: #0f172a;
-  --light-text-muted: #64748b;
+  --light-surface: rgba(0, 0, 0, 0.03);
+  --light-border-subtle: rgba(0, 0, 0, 0.12);
+  --light-text-base: #0f172a;      /* Deep obsidian black-slate for main text */
+  --light-text-muted: #334155;     /* Dark slate for secondary text */
 
   /* Typography */
   --font-serif: "Playfair Display", serif;
@@ -39,14 +39,14 @@
   }
 
   body {
-    @apply bg-bg-main text-text-base font-sans antialiased transition-colors duration-700 ease-in-out;
+    @apply bg-bg-main text-text-base font-sans antialiased transition-colors duration-500 ease-in-out;
     background-image:
       radial-gradient(circle at 50% -10%, rgba(245, 158, 11, 0.18), transparent 60%),
       radial-gradient(circle at 85% 85%, rgba(59, 130, 246, 0.10), transparent 65%);
     min-height: 100vh;
   }
 
-  /* --- THEME TOGGLE LOGIC --- */
+  /* --- HIGH CONTRAST DAY MODE (LIGHT THEME) --- */
   .light {
     color-scheme: light;
     --color-bg-main: var(--light-bg-main);
@@ -58,7 +58,42 @@
   }
 
   .light body {
-    background-image: radial-gradient(circle at 50% -10%, rgba(245, 158, 11, 0.06), transparent 60%);
+    background-image: radial-gradient(circle at 50% -10%, rgba(217, 119, 6, 0.08), transparent 60%);
+  }
+
+  /* Global Light Mode Text Darkening Rules */
+  .light h1, .light h2, .light h3, .light h4, .light h5, .light h6, 
+  .light p, .light span, .light div, .light label, .light input, .light button {
+    color: inherit;
+  }
+
+  .light .text-white {
+    color: #0f172a !important;
+  }
+
+  .light .text-white\/80, .light .text-white\/70, .light .text-white\/60 {
+    color: #1e293b !important;
+  }
+
+  .light .text-slate-400, .light .text-slate-500 {
+    color: #334155 !important;
+  }
+
+  .light .text-slate-600, .light .text-slate-700 {
+    color: #1e293b !important;
+  }
+
+  .light .bg-white\/5, .light .bg-white\/10 {
+    background-color: rgba(15, 23, 42, 0.05) !important;
+  }
+
+  .light .border-white\/10, .light .border-white\/20, .light .border-white\/5 {
+    border-color: rgba(15, 23, 42, 0.15) !important;
+  }
+
+  /* Buttons with solid primary backgrounds keep white text */
+  .light .bg-primary, .light .btn-luxury {
+    color: #ffffff !important;
   }
 
   /* Smooth custom scrollbar */
@@ -81,21 +116,21 @@
   }
 
   .glass-card:hover {
-    @apply -translate-y-2 shadow-[0_20px_50px_rgba(0,0,0,0.4)];
-    border-color: rgba(245, 158, 11, 0.35);
+    @apply -translate-y-2 shadow-[0_20px_50px_rgba(0,0,0,0.15)];
+    border-color: rgba(217, 119, 6, 0.35);
   }
 
   /* 🔥 Luxury Interaction Button */
   .btn-luxury {
     @apply relative px-10 py-4 rounded-full font-bold uppercase tracking-[0.2em] text-[10px]
-           bg-primary text-slate-950 overflow-hidden transition-all duration-500
+           bg-primary text-white overflow-hidden transition-all duration-500
            active:scale-95 font-sans;
-    box-shadow: 0 0 30px rgba(245, 158, 11, 0.35);
+    box-shadow: 0 0 30px rgba(217, 119, 6, 0.35);
     transition-timing-function: var(--ease-spring);
   }
 
   .btn-luxury:hover {
-    box-shadow: 0 0 50px rgba(245, 158, 11, 0.55);
+    box-shadow: 0 0 50px rgba(217, 119, 6, 0.55);
     transform: scale(1.05);
   }
 
@@ -142,7 +177,7 @@
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(at 20% 20%, rgba(245, 158, 11, 0.14), transparent 50%),
+    radial-gradient(at 20% 20%, rgba(217, 119, 6, 0.14), transparent 50%),
     radial-gradient(at 80% 80%, rgba(59, 130, 246, 0.08), transparent 50%);
   pointer-events: none;
 }
