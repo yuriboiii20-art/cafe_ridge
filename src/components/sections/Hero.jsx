@@ -1,4 +1,4 @@
-﻿import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"; // Assuming you use react-router
 import { fadeIn, staggerContainer } from "../../utils/animations";
@@ -53,16 +53,7 @@ const Hero = () => {
           initial="initial"
           animate="animate"
         >
-          <motion.div 
-            variants={fadeIn("down", 0.2)}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest mb-8 mx-auto lg:mx-0"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            NOW OPEN IN SECTOR 62, NOIDA
-          </motion.div>
+
 
           <motion.h1 
             variants={fadeIn("up", 0.4)}
