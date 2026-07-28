@@ -7,12 +7,12 @@
       fill="#f59e0b"
     />
     
-    {/* Coffee Cup Steam */}
+    <!-- Coffee Cup Steam -->
     <path d="M85 30 Q90 22 85 15" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" fill="none" />
     <path d="M100 28 Q105 20 100 13" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" fill="none" />
     <path d="M115 30 Q120 22 115 15" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" fill="none" />
 
-    {/* Cup Body & Handle */}
+    <!-- Cup Body and Handle -->
     <path
       d="M75 35 H125 V52 C125 65 115 72 100 72 C85 72 75 65 75 52 Z"
       fill="#f59e0b"
@@ -25,10 +25,10 @@
       fill="none"
     />
 
-    {/* Table Surface */}
+    <!-- Table Surface -->
     <rect x="35" y="78" width="130" height="8" rx="4" fill="#f59e0b" />
 
-    {/* Table Legs */}
+    <!-- Table Legs -->
     <path
       d="M60 86 L135 155 M140 86 L65 155"
       stroke="#f59e0b"
