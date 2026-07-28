@@ -20,7 +20,7 @@ const Contact = () => {
     >
       {/* Background Decorative Elements */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-amber-600/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         
@@ -34,7 +34,7 @@ const Contact = () => {
             <span className="text-primary uppercase tracking-[0.4em] text-xs font-bold">Get In Touch</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-serif mb-6">
-            Let’s Start a <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-primary to-indigo-300">Conversation</span>
+            Let’s Start a <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-300">Conversation</span>
           </h1>
           <p className="text-slate-400 max-w-2xl mx-auto leading-relaxed">
             Whether you're looking to book a private event, inquire about our seasonal menu, 

@@ -3,6 +3,7 @@ import { Zap, MessageCircle } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { Frame, FutureButton } from "../ui/FutureNavbar";
 import { getRestaurantStatus } from "../../utils/helpers";
+import { useCart } from "../../context/CartContext";
 
 export const MobileMenuContext = createContext({
   showMenu: false,
@@ -12,6 +13,8 @@ export const MobileMenuContext = createContext({
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const { status } = getRestaurantStatus();
+  const { cartItems } = useCart();
+  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   
   const primaryStroke = "#fbbf24"; 
   const primaryFill = "rgba(251, 191, 36, 0.1)";
@@ -26,7 +29,6 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "Menu", path: "/menu" },
     { name: "Reservation", path: "/reservation" },
-    { name: "Order", path: "/order" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -67,7 +69,7 @@ const Navbar = () => {
                 CAFE<span className="text-yellow-500 italic">NOVA</span>
               </NavLink>
 
-              <div className="hidden lg:flex gap-6 font-bold text-[10px] uppercase tracking-[0.2em]">
+              <div className="hidden lg:flex gap-6 font-bold text-[10px] uppercase tracking-[0.2em] items-center">
                 {navLinks.map((link) => (
                   <NavLink 
                     key={link.path} 
@@ -77,6 +79,22 @@ const Navbar = () => {
                     {link.name}
                   </NavLink>
                 ))}
+                <NavLink
+                  to="/order"
+                  className={({ isActive }) =>
+                    [
+                      "relative flex items-center gap-2 px-3 py-1.5 rounded-full transition-colors",
+                      isActive ? "text-yellow-500 bg-white/5" : "text-white/50 hover:text-white hover:bg-white/5",
+                    ].join(" ")
+                  }
+                >
+                  Order
+                  {cartCount > 0 && (
+                    <span className="min-w-5 h-5 px-1 rounded-full bg-primary text-white text-[10px] leading-5 text-center font-black shadow-lg shadow-primary/30">
+                      {cartCount}
+                    </span>
+                  )}
+                </NavLink>
               </div>
 
               <div className="ms-6 hidden xl:block">

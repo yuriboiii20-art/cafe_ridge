@@ -1,22 +1,74 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { menuData } from "../data/menuData";
 import GlassCard from "../components/ui/GlassCard";
 import { formatPrice } from "../utils/helpers";
 import { fadeIn, staggerContainer } from "../utils/animations";
-import { Search, Flame, Star, Utensils, Info } from "lucide-react";
+import { Search, Flame, Star, Utensils, Info, Plus, Minus, UtensilsCrossed, ShoppingCart } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
+
+const COMBOS = [
+  {
+    id: "royal-feast",
+    name: "Royal Feast",
+    dishId: 404,
+    drinkId: 501,
+    sweetId: 301,
+    discount: 100,
+  },
+  {
+    id: "comfort-combo",
+    name: "Comfort Combo",
+    dishId: 406,
+    drinkId: 509,
+    sweetId: 309,
+    discount: 80,
+  },
+  {
+    id: "premium-pairing",
+    name: "Premium Pairing",
+    dishId: 405,
+    drinkId: 502,
+    sweetId: 303,
+    discount: 120,
+  },
+];
 
 const Menu = () => {
   const [filter, setFilter] = useState("All");
   const [search, setSearch] = useState("");
+  const [searchParams] = useSearchParams();
+  const [showCombos, setShowCombos] = useState(false);
+  const { cartItems, addItem, addItems, removeItem } = useCart();
 
-  const categories = ["All", ...new Set(menuData.map((item) => item.category))];
+  const categories = ["All", ...new Set(menuData.map((item) => item.category)), "Must Try"];
+
+  useEffect(() => {
+    if (searchParams.get("section") === "must-try") {
+      setFilter("Must Try");
+    }
+  }, [searchParams]);
 
   const filteredMenu = menuData.filter(
     (item) =>
-      (filter === "All" || item.category === filter) &&
+      (filter === "All" || item.category === filter || (filter === "Must Try" && item.mustTry)) &&
       item.name.toLowerCase().includes(search.toLowerCase())
   );
+
+  // Only count individually-added (non-combo) quantities on the menu grid
+  const getQuantity = (itemId) =>
+    cartItems
+      .filter((ci) => ci.id === itemId && !ci.comboId)
+      .reduce((sum, ci) => sum + ci.quantity, 0);
+
+  const getMenuItemById = (itemId) => menuData.find((item) => item.id === itemId);
+
+  const addComboToCart = (combo) => {
+    const items = [combo.dishId, combo.drinkId, combo.sweetId].map(getMenuItemById);
+    addItems(items, combo.discount, `${combo.name} Discount`);
+  };
 
   return (
     <div className="pt-32 pb-20 bg-bg-main min-h-screen relative overflow-hidden">
@@ -60,6 +112,15 @@ const Menu = () => {
                 )}
               </button>
             ))}
+
+            <button
+              type="button"
+              onClick={() => setShowCombos((current) => !current)}
+              className={`relative px-6 py-2 group flex items-center gap-2 rounded-full border transition-colors ${showCombos ? "bg-primary border-primary text-white" : "bg-white/5 border-white/10 text-slate-500 hover:text-white hover:border-primary/30"}`}
+            >
+              <UtensilsCrossed size={14} />
+              <span className="relative z-10 text-xs uppercase tracking-widest font-bold">Combo</span>
+            </button>
           </div>
           
           {/* Search Input */}
@@ -74,6 +135,76 @@ const Menu = () => {
             />
           </div>
         </div>
+
+        {showCombos && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-14 p-6 md:p-8 rounded-[2rem] border border-white/10 bg-white/[0.03]"
+          >
+            <div className="flex items-center justify-between gap-4 mb-6">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-serif text-white">Combo Suggestions</h3>
+                <p className="text-slate-500 text-sm">Each combo includes one dish, one drink, and one sweet. Tap to add all three.</p>
+              </div>
+              <span className="hidden md:inline-flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-bold border border-primary/20 bg-primary/5 px-3 py-1.5 rounded-full">
+                <ShoppingCart size={14} /> Direct to Order
+              </span>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-5">
+              {COMBOS.map((combo) => {
+                const dish = getMenuItemById(combo.dishId);
+                const drink = getMenuItemById(combo.drinkId);
+                const sweet = getMenuItemById(combo.sweetId);
+
+                if (!dish || !drink || !sweet) return null;
+
+                const comboPrice = dish.price + drink.price + sweet.price - combo.discount;
+
+                return (
+                  <div key={combo.id} className="rounded-[1.75rem] border border-white/10 bg-slate-950/70 p-5 flex flex-col gap-4">
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <p className="text-[10px] uppercase tracking-[0.3em] text-primary font-bold mb-1">Combo</p>
+                        <h4 className="text-xl font-serif text-white">{combo.name}</h4>
+                      </div>
+                      <span className="text-primary font-bold text-sm bg-primary/10 border border-primary/20 rounded-full px-3 py-1">-{formatPrice(combo.discount)}</span>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-2">
+                      {[dish, drink, sweet].map((item) => (
+                        <div key={item.id} className="aspect-square rounded-2xl overflow-hidden border border-white/5 relative">
+                          <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="space-y-2 text-sm">
+                      <p className="text-white/80"><span className="text-slate-500 uppercase text-[10px] tracking-widest">Dish:</span> {dish.name}</p>
+                      <p className="text-white/80"><span className="text-slate-500 uppercase text-[10px] tracking-widest">Drink:</span> {drink.name}</p>
+                      <p className="text-white/80"><span className="text-slate-500 uppercase text-[10px] tracking-widest">Sweet:</span> {sweet.name}</p>
+                    </div>
+
+                    <div className="flex items-center justify-between pt-3 border-t border-white/5">
+                      <div>
+                        <p className="text-slate-500 text-[10px] uppercase tracking-widest">Combo price</p>
+                        <p className="text-2xl text-white font-serif">{formatPrice(comboPrice)}</p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => addComboToCart(combo)}
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-white text-xs uppercase tracking-widest font-bold hover:bg-indigo-500 transition-colors"
+                      >
+                        <ShoppingCart size={14} /> Add Combo
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </motion.div>
+        )}
 
         {/* Menu Grid */}
         <motion.div 
@@ -94,7 +225,7 @@ const Menu = () => {
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.4 }}
                 >
-                  <GlassCard className="group h-[540px] p-0 overflow-hidden flex flex-col border-white/5 hover:border-primary/20 transition-all duration-500">
+                  <GlassCard className="group h-[540px] p-0 overflow-hidden flex flex-col border-white/5 hover:border-primary/20 transition-all duration-500 relative">
                     {/* Image Area */}
                     <div className="relative h-1/2 overflow-hidden">
                       <img 
@@ -149,6 +280,29 @@ const Menu = () => {
                           <Utensils size={12} className="text-primary" /> Premium Quality
                         </div>
                       </div>
+                    </div>
+
+                    <div className="absolute top-4 right-4 flex items-center gap-2 rounded-full bg-black/60 backdrop-blur-md border border-white/10 p-1">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const cartItem = cartItems.find((ci) => ci.id === item.id && !ci.comboId);
+                          if (cartItem) removeItem(cartItem.cartItemId);
+                        }}
+                        className="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 text-white hover:bg-white/10 transition-colors"
+                        aria-label={`Decrease ${item.name}`}
+                      >
+                        <Minus size={14} />
+                      </button>
+                      <div className="min-w-8 text-center text-sm font-bold text-white">{getQuantity(item.id)}</div>
+                      <button
+                        type="button"
+                        onClick={() => addItem(item)}
+                        className="w-9 h-9 rounded-full flex items-center justify-center bg-primary text-white hover:bg-indigo-500 transition-colors"
+                        aria-label={`Add ${item.name}`}
+                      >
+                        <Plus size={14} />
+                      </button>
                     </div>
                   </GlassCard>
                 </motion.div>

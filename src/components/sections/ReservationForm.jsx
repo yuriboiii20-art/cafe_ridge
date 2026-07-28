@@ -145,11 +145,11 @@ const ReservationForm = () => {
                     <Clock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
                     <select
                       {...register("time")}
-                      className="w-full pl-10 py-3 rounded-xl bg-white/10 text-white border border-white/10"
+                      className="w-full pl-10 py-3 rounded-xl bg-slate-950 text-white border border-white/10 outline-none [color-scheme:dark]"
                     >
-                      <option>07:00 PM</option>
-                      <option>08:00 PM</option>
-                      <option>09:00 PM</option>
+                      <option value="07:00 PM" className="bg-slate-950 text-white">07:00 PM</option>
+                      <option value="08:00 PM" className="bg-slate-950 text-white">08:00 PM</option>
+                      <option value="09:00 PM" className="bg-slate-950 text-white">09:00 PM</option>
                     </select>
                   </div>
                 </div>
@@ -160,12 +160,12 @@ const ReservationForm = () => {
                     <Users className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
                     <select
                       {...register("guests")}
-                      className="w-full pl-10 py-3 rounded-xl bg-white/10 text-white border border-white/10"
+                      className="w-full pl-10 py-3 rounded-xl bg-slate-950 text-white border border-white/10 outline-none [color-scheme:dark]"
                     >
-                      <option>2</option>
-                      <option>4</option>
-                      <option>6</option>
-                      <option>8</option>
+                      <option value="2" className="bg-slate-950 text-white">2</option>
+                      <option value="4" className="bg-slate-950 text-white">4</option>
+                      <option value="6" className="bg-slate-950 text-white">6</option>
+                      <option value="8" className="bg-slate-950 text-white">8</option>
                     </select>
                   </div>
                 </div>

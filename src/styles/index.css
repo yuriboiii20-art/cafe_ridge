@@ -1,35 +1,35 @@
 @import "tailwindcss";
 
 @theme {
-  /* --- 🎨 THE PRESTIGE COLOR SYSTEM --- */
-  
-  /* Brand Constants */
-  --color-primary: #6366f1;
-  --color-primary-light: #a5b4fc;
-  --color-primary-dark: #4338ca;
-  --color-gold: #fbbf24;
+  /* --- 🎨 CAFENOVA WARM PRESTIGE COLOR SYSTEM --- */
 
-  /* 🌑 NIGHT MODE VARIABLES (Default) */
-  --color-bg-main: #020617;
-  --color-bg-soft: #0f172a;
-  --color-surface: rgba(255, 255, 255, 0.03);
-  --color-border-subtle: rgba(255, 255, 255, 0.08);
-  --color-text-base: #f8fafc;
-  --color-text-muted: #94a3b8;
+  /* Brand Constants — Rich Amber/Gold Primary */
+  --color-primary: #d97706;        /* Warm amber */
+  --color-primary-light: #fbbf24;  /* Golden yellow */
+  --color-primary-dark: #b45309;   /* Deep amber */
+  --color-gold: #f59e0b;
 
-  /* ☀️ DAY MODE VARIABLES */
-  --light-bg-main: #f8fafc;
+  /* 🌑 DARK MODE — Deep Charcoal (not navy) */
+  --color-bg-main: #0d0b07;        /* Warm near-black */
+  --color-bg-soft: #1a1510;        /* Warm dark brown-charcoal */
+  --color-surface: rgba(255, 200, 100, 0.03);
+  --color-border-subtle: rgba(255, 190, 80, 0.10);
+  --color-text-base: #fef9f0;      /* Warm white */
+  --color-text-muted: #a8956e;     /* Warm muted gold-grey */
+
+  /* ☀️ LIGHT MODE */
+  --light-bg-main: #fdf8f0;
   --light-bg-soft: #ffffff;
   --light-surface: rgba(0, 0, 0, 0.02);
   --light-border-subtle: rgba(0, 0, 0, 0.06);
-  --light-text-base: #0f172a;
-  --light-text-muted: #475569;
+  --light-text-base: #1a0f00;
+  --light-text-muted: #7c6340;
 
   /* Typography */
   --font-serif: "Playfair Display", serif;
   --font-sans: "Plus Jakarta Sans", sans-serif;
 
-  /* 🌀 Custom Spring Physics (Fixed for Tailwind v4) */
+  /* 🌀 Custom Spring Physics */
   --ease-spring: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 
@@ -40,7 +40,9 @@
 
   body {
     @apply bg-bg-main text-text-base font-sans antialiased transition-colors duration-700 ease-in-out;
-    background-image: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.15), transparent 80%);
+    background-image:
+      radial-gradient(circle at 50% -20%, rgba(217, 119, 6, 0.18), transparent 70%),
+      radial-gradient(circle at 90% 80%, rgba(180, 83, 9, 0.08), transparent 60%);
     min-height: 100vh;
   }
 
@@ -56,7 +58,7 @@
   }
 
   .light body {
-    background-image: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.05), transparent 80%);
+    background-image: radial-gradient(circle at 50% -20%, rgba(217, 119, 6, 0.06), transparent 70%);
   }
 
   /* Smooth custom scrollbar */
@@ -72,22 +74,30 @@
 }
 
 @layer components {
-  /* 💎 Glassmorphic Card */
+  /* 💎 Glassmorphic Card — warm tinted glass */
   .glass-card {
     @apply relative overflow-hidden backdrop-blur-2xl bg-surface border border-border-subtle
            rounded-[2rem] transition-all duration-500 ease-out;
+    background: rgba(255, 185, 60, 0.03);
   }
 
   .glass-card:hover {
-    @apply border-primary/30 -translate-y-2 shadow-[0_20px_50px_rgba(0,0,0,0.2)];
+    @apply -translate-y-2 shadow-[0_20px_50px_rgba(0,0,0,0.25)];
+    border-color: rgba(217, 119, 6, 0.30);
   }
 
   /* 🔥 Luxury Interaction Button */
   .btn-luxury {
     @apply relative px-10 py-4 rounded-full font-bold uppercase tracking-[0.2em] text-[10px]
            bg-primary text-white overflow-hidden transition-all duration-500
-           hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] hover:scale-105 active:scale-95;
+           active:scale-95;
+    box-shadow: 0 0 30px rgba(217, 119, 6, 0.35);
     transition-timing-function: var(--ease-spring);
+  }
+
+  .btn-luxury:hover {
+    box-shadow: 0 0 50px rgba(217, 119, 6, 0.55);
+    transform: scale(1.05);
   }
 
   .btn-luxury::after {
@@ -100,10 +110,10 @@
     @apply left-[100%];
   }
 
-  /* ✨ Aurora Background Glow */
+  /* ✨ Aurora Background Glow — warm amber */
   .aurora {
     @apply absolute blur-[120px] rounded-full pointer-events-none opacity-40 mix-blend-screen;
-    background: linear-gradient(45deg, var(--color-primary), #818cf8);
+    background: linear-gradient(45deg, var(--color-primary), #fbbf24);
   }
 
   /* 🧊 Premium Gradient Text */
@@ -116,13 +126,13 @@
   .theme-icon {
     transition: transform 600ms var(--ease-spring);
   }
-  
+
   .light .theme-icon {
     @apply rotate-[360deg];
   }
 }
 
-/* 🌌 Mesh Background Layer */
+/* 🌌 Mesh Background Layer — warm tones */
 .bg-mesh {
   position: relative;
   overflow: hidden;
@@ -132,8 +142,8 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: 
-    radial-gradient(at 20% 20%, rgba(99, 102, 241, 0.1), transparent 50%),
-    radial-gradient(at 80% 80%, rgba(79, 70, 229, 0.08), transparent 50%);
+  background-image:
+    radial-gradient(at 20% 20%, rgba(217, 119, 6, 0.10), transparent 50%),
+    radial-gradient(at 80% 80%, rgba(180, 83, 9, 0.07), transparent 50%);
   pointer-events: none;
 }

@@ -86,7 +86,7 @@ const Hero = () => {
             className="flex flex-wrap gap-4 justify-center lg:justify-start"
           >
             {/* CTA 1: Must Try */}
-            <Link to="/order" className="group relative px-8 py-4 bg-primary rounded-2xl font-bold text-white overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(99,102,241,0.4)]">
+            <Link to="/menu?section=must-try" className="group relative px-8 py-4 bg-primary rounded-2xl font-bold text-white overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(99,102,241,0.4)]">
               <span className="relative z-10 flex items-center gap-2">
                 <UtensilsCrossed size={18} /> Must Try <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </span>
