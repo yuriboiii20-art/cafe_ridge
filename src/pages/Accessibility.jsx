@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Accessibility as AccessibleIcon, Globe, UserCheck } from "lucide-react";
 
 const Accessibility = () => {
@@ -27,7 +27,7 @@ const Accessibility = () => {
           <h2 className="text-2xl text-white font-serif mb-4 flex items-center gap-3">
             <UserCheck className="text-primary" /> Continuous Improvement
           </h2>
-          <p>If you encounter any barriers on our platform, please reach out to our experience designers at <span className="text-primary">accessibility@cafenova.com</span>. We treat accessibility feedback as a priority bug.</p>
+          <p>If you encounter any barriers on our platform, please reach out to our experience designers at <span className="text-primary">accessibility@Cafe Ridge.com</span>. We treat accessibility feedback as a priority bug.</p>
         </section>
       </div>
     </main>

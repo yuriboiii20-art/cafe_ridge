@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock, Send, MessageSquare, Globe, Sparkles } from "lucide-react";
 import GlassCard from "../components/ui/GlassCard";
 import { fadeIn, staggerContainer } from "../utils/animations";
@@ -132,7 +132,7 @@ const Contact = () => {
             {[
               { q: "Do you offer valet parking?", a: "Yes, we provide complimentary valet parking for all our dinner guests." },
               { q: "Can I host a corporate event?", a: "Absolutely. We have a private lounge equipped for presentations and fine dining." },
-              { q: "Is there a dress code?", a: "We recommend smart casual to match the CafeNova atmosphere." }
+              { q: "Is there a dress code?", a: "We recommend smart casual to match the Cafe Ridge atmosphere." }
             ].map((faq, i) => (
               <div key={i} className="space-y-3">
                 <h4 className="text-white font-bold flex items-center gap-2">

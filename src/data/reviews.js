@@ -1,4 +1,4 @@
-export const reviews = [
+﻿export const reviews = [
   {
     id: 1,
     name: "Aarav Sharma",
@@ -6,7 +6,7 @@ export const reviews = [
     rating: 5,
     verified: true,
     social: "@thecritics_table",
-    comment: "CafeNova offers an unparalleled ambiance. The Truffle Risotto is a masterclass in flavor balance. Truly a gem in the heart of Sector 62.",
+    comment: "Cafe Ridge offers an unparalleled ambiance. The Truffle Risotto is a masterclass in flavor balance. Truly a gem in the heart of Sector 62.",
     avatar: "https://i.pravatar.cc/150?u=aarav",
     category: "Fine Dining",
     date: "2 days ago"

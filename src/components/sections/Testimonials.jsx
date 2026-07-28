@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectCoverflow } from "swiper/modules";
 import { motion } from "framer-motion";
@@ -37,7 +37,7 @@ const Testimonials = () => {
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-7xl font-serif text-white mb-6"
           >
-            Voices of <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-primary to-indigo-300">CafeNova</span>
+            Voices of <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-primary to-indigo-300">Cafe Ridge</span>
           </motion.h2 >
           <motion.p 
             initial={{ opacity: 0 }}

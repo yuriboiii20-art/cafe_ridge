@@ -1,10 +1,10 @@
-// 1. Check Restaurant Status (Real-time Opening Hours)
+﻿// 1. Check Restaurant Status (Real-time Opening Hours)
 export const getRestaurantStatus = () => {
   const now = new Date();
   const hour = now.getHours();
   const day = now.getDay(); // 0 = Sunday
 
-  // Assuming CafeNova is open 10:00 AM to 11:00 PM
+  // Assuming Cafe Ridge is open 10:00 AM to 11:00 PM
   const isOpen = hour >= 10 && hour < 23;
   
   if (day === 1) return { status: "Closed", color: "text-red-500", message: "Closed for Maintenance (Monday)" };
@@ -13,7 +13,7 @@ export const getRestaurantStatus = () => {
     : { status: "Closed", color: "text-red-500", message: "Opens at 10:00 AM" };
 };
 
-// 2. Format Currency (INR for CafeNova)
+// 2. Format Currency (INR for Cafe Ridge)
 export const formatPrice = (amount) => {
   return new Intl.NumberFormat('en-IN', {
     style: 'currency',
@@ -31,7 +31,7 @@ export const getTodaysSpecial = () => {
     { day: "Wednesday", item: "Signature Steak", discount: "10%" },
     { day: "Thursday", item: "Golden Glaze Donuts", discount: "Free with any Coffee" },
     { day: "Friday", item: "Seafood Platter", discount: "25%" },
-    { day: "Saturday", item: "CafeNova Grand Brunch", discount: "Fixed Price" },
+    { day: "Saturday", item: "Cafe Ridge Grand Brunch", discount: "Fixed Price" },
   ];
   
   const currentDay = new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(new Date());

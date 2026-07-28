@@ -85,7 +85,7 @@ const Footer = () => {
           <div className="space-y-10">
             <div className="space-y-6">
               <h2 className="text-4xl font-black tracking-tighter text-white">
-                CAFE<span className="text-primary italic">NOVA</span>
+                CAFE<span className="text-primary italic">RIDGE</span>
               </h2>
               <p className="text-slate-400 leading-relaxed text-base">
                 Synthesizing avant-garde culinary techniques with digital sophistication. A sanctuary for the modern connoisseur.

@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { ShieldCheck, Lock, Eye, Database } from "lucide-react";
 
 const Privacy = () => {
@@ -27,7 +27,7 @@ const Privacy = () => {
             <h2 className="text-2xl text-white font-serif mb-4 flex items-center gap-3">
               <Lock className="text-primary" /> Data Protection
             </h2>
-            <p>CafeNova employs AES-256 encryption for all data at rest. Your personal information is treated as a premium asset, stored securely within our "Encrypted Experience Design" framework.</p>
+            <p>Cafe Ridge employs AES-256 encryption for all data at rest. Your personal information is treated as a premium asset, stored securely within our "Encrypted Experience Design" framework.</p>
           </div>
 
           <div>

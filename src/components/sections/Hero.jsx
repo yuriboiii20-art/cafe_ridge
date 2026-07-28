@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+﻿import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"; // Assuming you use react-router
 import { fadeIn, staggerContainer } from "../../utils/animations";
@@ -39,7 +39,7 @@ const Hero = () => {
             <img 
               src={HERO_IMAGES[currentImg]} 
               className="w-full h-full object-cover"
-              alt="CafeNova Ambiance"
+              alt="Cafe Ridge Ambiance"
             />
           </motion.div>
         </AnimatePresence>

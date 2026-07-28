@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+﻿import { motion, useScroll, useTransform } from "framer-motion";
 import ReservationForm from "../components/sections/ReservationForm";
 import { MapPin, Phone, Mail, Clock, ShieldCheck, Star } from "lucide-react";
 
@@ -43,7 +43,7 @@ const Reservation = () => {
             The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-primary via-indigo-300 to-white/80">Experience</span>
           </h1>
           <p className="text-slate-400 max-w-xl mx-auto text-lg font-light leading-relaxed">
-            From intimate dinners to grand celebrations, every seat at CafeNova is a journey through flavor and elegance.
+            From intimate dinners to grand celebrations, every seat at Cafe Ridge is a journey through flavor and elegance.
           </p>
         </motion.div>
 

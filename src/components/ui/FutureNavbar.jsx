@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+﻿import React, { useRef, useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 import { setupSvgRenderer } from "@left4code/svg-renderer";
 import { cva } from "class-variance-authority";
@@ -39,7 +39,7 @@ const Frame = ({
 /** 🎨 BUTTON VARIANTS & COLORS **/
 const COLORS = {
   default: {
-    stroke1: "#fbbf24", // Gold for CafeNova
+    stroke1: "#fbbf24", // Gold for Cafe Ridge
     fill1: "rgba(251, 191, 36, 0.22)",
     stroke2: "#fbbf24",
     fill2: "rgba(251, 191, 36, 0.1)",

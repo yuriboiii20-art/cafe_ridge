@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+﻿import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ShoppingBag, CreditCard, Truck, ChevronRight, Trash2,
@@ -224,7 +224,7 @@ const Order = () => {
   };
 
   /* ── UPI QR code URL (uses free qrserver API) ── */
-  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi%3A%2F%2Fpay%3Fpa%3Dcafenova%40upi%26pn%3DCafeNova%26am%3D${Math.round(totals.total)}%26cu%3DINR&bgcolor=0f1117&color=ffffff&margin=10`;
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi%3A%2F%2Fpay%3Fpa%3DCafe Ridge%40upi%26pn%3DCafe Ridge%26am%3D${Math.round(totals.total)}%26cu%3DINR&bgcolor=0f1117&color=ffffff&margin=10`;
 
   /* ═══════════════════════════ RENDER ═══════════════════════════ */
 
@@ -541,7 +541,7 @@ const Order = () => {
 
                           <div className="text-center space-y-1">
                             <p className="text-slate-400 text-sm">UPI ID</p>
-                            <p className="text-white font-mono font-bold text-base tracking-widest bg-white/5 border border-white/10 px-4 py-2 rounded-xl">cafenova@upi</p>
+                            <p className="text-white font-mono font-bold text-base tracking-widest bg-white/5 border border-white/10 px-4 py-2 rounded-xl">Cafe Ridge@upi</p>
                           </div>
 
                           <div className="w-full border-t border-white/5 pt-5 space-y-2 text-sm text-center">
@@ -626,7 +626,7 @@ const Order = () => {
                             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 80% 20%, white 0%, transparent 50%)" }} />
                             <div className="flex justify-between items-start mb-8">
                               <div className="w-10 h-7 bg-amber-400/80 rounded-md" />
-                              <div className="text-white/40 text-xs font-bold uppercase tracking-widest">CafeNova Pay</div>
+                              <div className="text-white/40 text-xs font-bold uppercase tracking-widest">Cafe Ridge Pay</div>
                             </div>
                             <p className="text-white font-mono text-lg tracking-[0.2em] mb-4">
                               {card.number || "•••• •••• •••• ••••"}

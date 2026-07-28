@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Scale, Clock, AlertCircle } from "lucide-react";
 
 const Terms = () => {
@@ -15,21 +15,21 @@ const Terms = () => {
             <h2 className="text-2xl text-white font-serif mb-4 flex items-center gap-3">
               <Clock className="text-primary" /> Reservation Policy
             </h2>
-            <p>Reservations at CafeNova are held for a maximum of 15 minutes past the scheduled time. Late arrivals may result in a forfeited table or a shift to our waitlist.</p>
+            <p>Reservations at Cafe Ridge are held for a maximum of 15 minutes past the scheduled time. Late arrivals may result in a forfeited table or a shift to our waitlist.</p>
           </div>
 
           <div>
             <h2 className="text-2xl text-white font-serif mb-4 flex items-center gap-3">
               <Scale className="text-primary" /> Intellectual Property
             </h2>
-            <p>All digital assets, code (including the "Boxes" background and "Magnetic" interaction scripts), and culinary designs are the exclusive property of CafeNova. Unauthorized replication is prohibited.</p>
+            <p>All digital assets, code (including the "Boxes" background and "Magnetic" interaction scripts), and culinary designs are the exclusive property of Cafe Ridge. Unauthorized replication is prohibited.</p>
           </div>
 
           <div className="bg-primary/5 border border-primary/20 p-6 rounded-2xl">
              <h2 className="text-xl text-white font-bold mb-2 flex items-center gap-2">
                <AlertCircle size={18} className="text-primary" /> Limitation of Liability
              </h2>
-             <p className="text-sm text-slate-400 italic">CafeNova provides this digital platform "as is." We are not liable for any digital interruptions or inaccuracies in real-time kitchen status displays.</p>
+             <p className="text-sm text-slate-400 italic">Cafe Ridge provides this digital platform "as is." We are not liable for any digital interruptions or inaccuracies in real-time kitchen status displays.</p>
           </div>
         </section>
       </div>

@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo } from "react";
+﻿import { createContext, useContext, useEffect, useMemo } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const CartContext = createContext(null);
@@ -19,8 +19,8 @@ const buildCartItem = (item, comboId = null) => {
 };
 
 export const CartProvider = ({ children }) => {
-	const [cartItems, setCartItems] = useLocalStorage("cafenova-cart", []);
-	const [discounts, setDiscounts] = useLocalStorage("cafenova-discounts", []);
+	const [cartItems, setCartItems] = useLocalStorage("Cafe Ridge-cart", []);
+	const [discounts, setDiscounts] = useLocalStorage("Cafe Ridge-discounts", []);
 
 	// Migrate stale localStorage data from previous architecture
 	useEffect(() => {
