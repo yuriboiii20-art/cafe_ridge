@@ -2,19 +2,31 @@ import { Sun, Moon } from "lucide-react";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useEffect } from "react";
 
-const ThemeToggle = () => {
+const ThemeToggle = ({ positionClass = "fixed bottom-6 right-6 z-50" }) => {
   const [theme, setTheme] = useLocalStorage("theme", "dark");
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
+    if (theme === "light") {
+      document.documentElement.classList.add("light");
+      document.documentElement.classList.remove("dark");
+    } else {
+      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
+    }
   }, [theme]);
 
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
   return (
-    <button 
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-gold-primary text-black shadow-lg hover:scale-110 transition"
+    <button
+      type="button"
+      onClick={toggleTheme}
+      aria-label="Toggle Theme"
+      className={`${positionClass} p-3 rounded-full bg-primary text-white shadow-xl shadow-primary/20 hover:scale-110 active:scale-95 transition-all border border-white/20 backdrop-blur-md flex items-center justify-center`}
     >
-      {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+      {theme === "dark" ? <Sun size={18} className="text-amber-300" /> : <Moon size={18} className="text-white" />}
     </button>
   );
 };

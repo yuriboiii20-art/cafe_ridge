@@ -1,9 +1,9 @@
 import React, { createContext, useState } from "react";
-import { Zap, MessageCircle } from "lucide-react";
+import { MessageCircle, ShoppingBag, Menu as MenuIcon, X } from "lucide-react";
 import { NavLink } from "react-router-dom";
-import { Frame, FutureButton } from "../ui/FutureNavbar";
 import { getRestaurantStatus } from "../../utils/helpers";
 import { useCart } from "../../context/CartContext";
+import ThemeToggle from "./ThemeToggle";
 
 export const MobileMenuContext = createContext({
   showMenu: false,
@@ -15,9 +15,6 @@ const Navbar = () => {
   const { status } = getRestaurantStatus();
   const { cartItems } = useCart();
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-  
-  const primaryStroke = "#fbbf24"; 
-  const primaryFill = "rgba(251, 191, 36, 0.1)";
 
   const openWhatsApp = () => {
     const phoneNumber = "919620996689";
@@ -34,104 +31,115 @@ const Navbar = () => {
 
   return (
     <MobileMenuContext.Provider value={{ showMenu, setShowMenu }}>
-      <nav className="fixed w-full top-0 inset-x-0 z-50 h-20">
-        <div className="flex h-full relative w-full items-center">
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4">
+        <nav className="max-w-7xl mx-auto backdrop-blur-xl bg-bg-soft/80 border border-white/10 dark:border-white/10 light:border-black/10 rounded-full px-6 py-3 shadow-2xl shadow-black/40 flex items-center justify-between transition-all duration-300">
           
-          {/* Left Frame (Decorative) */}
-          <div className="size-full relative -mr-[11px] hidden lg:block opacity-30">
-            <Frame
-              paths={[
-                {
-                  show: true,
-                  style: { strokeWidth: "1", stroke: primaryStroke, fill: "rgba(251,191,36,0.05)" },
-                  path: [["M","0","0"],["L","100% - 6","0"],["L","100% - 11","100% - 64"],["L","100% + 0","0% + 29"],["L","0","11"],["L","0","0"]]
+          {/* Brand Logo */}
+          <NavLink to="/" className="flex items-center gap-2 group">
+            <span className="font-serif font-black text-2xl tracking-tight text-text-base">
+              CAFE<span className="text-primary italic group-hover:brightness-110 transition-all">RIDGE</span>
+            </span>
+          </spanNavLink>
+
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:flex items-center gap-8 font-bold text-xs uppercase tracking-[0.18em]">
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.path}
+                to={link.path}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-primary relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-primary after:rounded-full"
+                    : "text-text-muted hover:text-text-base transition-colors py-1"
                 }
-              ]}
-            />
-          </div>
-
-          {/* Center Frame (Nav Links) */}
-          <div className="flex-none h-full px-12 relative w-full lg:w-auto min-w-[580px]">
-            <Frame
-              enableBackdropBlur
-              className="drop-shadow-[0_0_10px_rgba(251,191,36,0.1)]"
-              paths={[
-                {
-                  show: true,
-                  style: { strokeWidth: "1", stroke: primaryStroke, fill: primaryFill },
-                  path: [["M","6","0"],["L","100% - 6.5","0"],["L","100% + 0","0% + 9"],["L","100% - 28","100% - 15"],["L","162","100% - 15"],["L","164","100% - 30"],["L","153","100% - 15"],["L","27","100% - 15"],["L","0","0% + 8"],["L","6","0"]]
-                }
-              ]}
-            />
-            
-            <div className="flex items-center mt-3 relative z-20">
-              <NavLink to="/" className="me-10 font-serif font-black text-xl tracking-tighter text-white">
-                CAFE<span className="text-yellow-500 italic">RIDGE</span>
-              </NavLink>
-
-              <div className="hidden lg:flex gap-6 font-bold text-[10px] uppercase tracking-[0.2em] items-center">
-                {navLinks.map((link) => (
-                  <NavLink 
-                    key={link.path} 
-                    to={link.path} 
-                    className={({ isActive }) => isActive ? "text-yellow-500" : "text-white/50 hover:text-white transition-colors"}
-                  >
-                    {link.name}
-                  </NavLink>
-                ))}
-                <NavLink
-                  to="/order"
-                  className={({ isActive }) =>
-                    [
-                      "relative flex items-center gap-2 px-3 py-1.5 rounded-full transition-colors",
-                      isActive ? "text-yellow-500 bg-white/5" : "text-white/50 hover:text-white hover:bg-white/5",
-                    ].join(" ")
-                  }
-                >
-                  Order
-                  {cartCount > 0 && (
-                    <span className="min-w-5 h-5 px-1 rounded-full bg-primary text-white text-[10px] leading-5 text-center font-black shadow-lg shadow-primary/30">
-                      {cartCount}
-                    </span>
-                  )}
-                </NavLink>
-              </div>
-
-              <div className="ms-6 hidden xl:block">
-                <span className="text-[8px] font-black px-2 py-0.5 rounded border border-yellow-500/20 text-yellow-500 animate-pulse uppercase">
-                  {status}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Frame (Enquiry Button) */}
-          <div className="w-full relative -ml-[25px] lg:flex justify-end pe-10 hidden">
-            <Frame
-              enableBackdropBlur
-              paths={[
-                {
-                  show: true,
-                  style: { strokeWidth: "1", stroke: primaryStroke, fill: "rgba(251,191,36,0.05)" },
-                  path: [["M","19","0"],["L","100% - 5","0"],["L","100% + 0","0% + 7"],["L","100% - 36","100% - 20"],["L","0","100% - 20"],["L","25","8.9"],["L","19","1"]]
-                }
-              ]}
-            />
-            <div className="flex items-center -mt-4 relative z-20">
-              <FutureButton
-                onClick={openWhatsApp}
-                shape="flat"
-                className="font-black px-6 py-2 text-[10px] uppercase tracking-[0.2em] hover:brightness-125"
               >
-                <div className="flex items-center gap-2">
-                  <MessageCircle size={14} className="text-yellow-500" />
-                  Enquiry
-                </div>
-              </FutureButton>
-            </div>
+                {link.name}
+              </NavLink>
+            ))}
+
+            <NavLink
+              to="/order"
+              className={({ isActive }) =>
+                `flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${
+                  isActive
+                    ? "bg-primary text-white border-primary shadow-lg shadow-primary/30"
+                    : "border-white/10 hover:border-primary/50 text-text-base hover:bg-white/5"
+                }`
+              }
+            >
+              <ShoppingBag size={14} />
+              <span>Order</span>
+              {cartCount > 0 && (
+                <span className="ml-1 px-2 py-0.5 rounded-full bg-emerald-500 text-white text-[10px] font-black">
+                  {cartCount}
+                </span>
+              )}
+            </NavLink>
           </div>
-        </div>
-      </nav>
+
+          {/* Right Action Controls */}
+          <div className="hidden lg:flex items-center gap-4">
+            <span className="text-[10px] font-black px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 uppercase tracking-widest flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              {status}
+            </span>
+
+            <button
+              onClick={openWhatsApp}
+              className="px-5 py-2.5 rounded-full bg-primary hover:bg-primary-dark text-white text-xs font-bold uppercase tracking-widest transition-all shadow-lg shadow-primary/25 flex items-center gap-2 hover:scale-105 active:scale-95"
+            >
+              <MessageCircle size={14} />
+              <span>Enquiry</span>
+            </button>
+          </div>
+
+          {/* Mobile Menu Toggle Button */}
+          <button
+            type="button"
+            onClick={() => setShowMenu(!showMenu)}
+            className="md:hidden p-2 rounded-full text-text-base hover:bg-white/10 transition-colors"
+            aria-label="Toggle Menu"
+          >
+            {showMenu ? <X size={24} /> : <MenuIcon size={24} />}
+          </button>
+        </nav>
+
+        {/* Mobile Dropdown Menu */}
+        {showMenu && (
+          <div className="md:hidden mt-3 max-w-7xl mx-auto backdrop-blur-2xl bg-bg-soft/95 border border-white/10 rounded-3xl p-6 shadow-2xl space-y-4 flex flex-col items-center text-center">
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.path}
+                to={link.path}
+                onClick={() => setShowMenu(false)}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-primary font-bold text-sm uppercase tracking-widest"
+                    : "text-text-muted hover:text-text-base text-sm uppercase tracking-widest"
+                }
+              >
+                {link.name}
+              </NavLink>
+            ))}
+            <NavLink
+              to="/order"
+              onClick={() => setShowMenu(false)}
+              className="w-full py-3 rounded-full bg-primary text-white text-xs font-bold uppercase tracking-widest text-center shadow-lg shadow-primary/20 flex items-center justify-center gap-2"
+            >
+              <ShoppingBag size={14} /> Order ({cartCount})
+            </NavLink>
+            <button
+              onClick={() => {
+                openWhatsApp();
+                setShowMenu(false);
+              }}
+              className="w-full py-3 rounded-full border border-white/20 text-text-base text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2"
+            >
+              <MessageCircle size={14} className="text-primary" /> Enquiry
+            </button>
+          </div>
+        )}
+      </header>
     </MobileMenuContext.Provider>
   );
 };
