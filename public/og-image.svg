@@ -1,18 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-  <rect width="200" height="200" rx="40" fill="#090d16" />
-  <g transform="translate(10, 10) scale(0.9)">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#090d16" />
+  
+  <!-- Subtle Amber Radial Glow -->
+  <circle cx="600" cy="315" r="500" fill="#f59e0b" opacity="0.08" />
+  
+  <!-- Logo Icon -->
+  <g transform="translate(180, 115) scale(2.0)">
     <!-- Circle Background -->
     <path
       d="M100 10 A90 90 0 1 0 100 190 A90 90 0 1 0 100 10 Z M25 90 A75 75 0 0 1 175 90 Z"
       fill="#f59e0b"
     />
     
-    {/* Coffee Cup Steam */}
+    <!-- Steam -->
     <path d="M85 30 Q90 22 85 15" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" fill="none" />
     <path d="M100 28 Q105 20 100 13" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" fill="none" />
     <path d="M115 30 Q120 22 115 15" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" fill="none" />
 
-    {/* Cup Body & Handle */}
+    <!-- Cup Body & Handle -->
     <path
       d="M75 35 H125 V52 C125 65 115 72 100 72 C85 72 75 65 75 52 Z"
       fill="#f59e0b"
@@ -25,10 +31,10 @@
       fill="none"
     />
 
-    {/* Table Surface */}
+    <!-- Table Surface -->
     <rect x="35" y="78" width="130" height="8" rx="4" fill="#f59e0b" />
 
-    {/* Table Legs */}
+    <!-- Table Legs -->
     <path
       d="M60 86 L135 155 M140 86 L65 155"
       stroke="#f59e0b"
@@ -39,4 +45,17 @@
     <line x1="68" y1="128" x2="132" y2="128" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" />
     <line x1="68" y1="145" x2="132" y2="145" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" />
   </g>
+
+  <!-- Typography -->
+  <text x="650" y="290" fill="#ffffff" font-family="Playfair Display, Georgia, serif" font-weight="900" font-size="76" letter-spacing="4">
+    CAFE <tspan fill="#f59e0b" font-style="italic">RIDGE</tspan>
+  </text>
+  
+  <text x="655" y="360" fill="#f59e0b" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="28" letter-spacing="8">
+    RISE TO THE RIDGE
+  </text>
+  
+  <text x="655" y="420" fill="#94a3b8" font-family="Plus Jakarta Sans, sans-serif" font-weight="500" font-size="22" letter-spacing="1">
+    Fine Dining, Gourmet Cuisine &amp; Craft Beverages
+  </text>
 </svg>
