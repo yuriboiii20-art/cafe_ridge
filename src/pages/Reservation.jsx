@@ -1,4 +1,4 @@
-﻿import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import ReservationForm from "../components/sections/ReservationForm";
 import { MapPin, Phone, Mail, Clock, ShieldCheck, Star } from "lucide-react";
 
@@ -8,7 +8,7 @@ const Reservation = () => {
   const y2 = useTransform(scrollY, [0, 500], [0, -150]);
 
   const contactInfo = [
-    { icon: <MapPin size={24} />, title: "Visit Us", detail: "Sector 62, Noida", sub: "Gautam Buddha Nagar, UP" },
+    { icon: <MapPin size={24} />, title: "Visit Us", detail: "B.M Road, Vijaya Nagar", sub: "Ramanagara, Karnataka 562159" },
     { icon: <Phone size={24} />, title: "Call Us", detail: "+91 96209 96689", sub: "Mon - Sun, 10am - 11pm" },
     { icon: <Mail size={24} />, title: "Email Us", detail: "info@codeinnovativetechnologies.com", sub: "Response within 24hrs" }
   ];

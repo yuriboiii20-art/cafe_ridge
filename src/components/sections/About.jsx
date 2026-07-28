@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { fadeIn, staggerContainer } from "../../utils/animations";
 import { Utensils, Award, Leaf, Zap } from "lucide-react";
@@ -70,7 +70,7 @@ const About = () => {
               className="absolute -top-10 -right-10 w-40 h-40 bg-primary rounded-full flex flex-col items-center justify-center border-4 border-bg-main shadow-xl z-20"
             >
               <span className="text-white font-bold text-3xl">TOP 1</span>
-              <span className="text-white/80 text-[10px] uppercase tracking-tighter">Bistro in Noida</span>
+              <span className="text-white/80 text-[10px] uppercase tracking-tighter">Bistro in Ramanagara</span>
             </motion.div>
           </motion.div>
 
@@ -92,7 +92,7 @@ const About = () => {
 
             <motion.div variants={fadeIn("up", 0.3)} className="space-y-6 text-slate-400 mb-12">
               <p className="text-lg">
-                Born in the heart of Noida's tech hub, Cafe Ridge was built for the dreamers, the coders, and the creators. We realized that elite minds require elite fuel.
+                Born in the heart of Ramanagara's tech hub, Cafe Ridge was built for the dreamers, the coders, and the creators. We realized that elite minds require elite fuel.
               </p>
               <p>
                 Our kitchen functions like a high-performance engine. We analyze flavor profiles using molecular Gastronomy to ensure every bite triggers the perfect sensory response. We aren't just serving food; we are serving inspiration.

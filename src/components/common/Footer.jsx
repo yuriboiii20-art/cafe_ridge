@@ -148,14 +148,14 @@ const Footer = () => {
                 <MapPin size={20} className="text-primary" /> The Venue
               </h4>
               <div className="text-xs font-mono text-primary/60 bg-primary/5 px-4 py-2 rounded-lg border border-primary/10">
-                Lat: 28.6271° N | Long: 77.3744° E
+                Lat: 12.7153° N | Long: 77.2838° E
               </div>
             </div>
 
             <div className="relative h-64 w-full rounded-[2.5rem] overflow-hidden group shadow-inner">
                <div className="absolute inset-0 bg-primary/20 mix-blend-color pointer-events-none z-10 opacity-40 group-hover:opacity-0 transition-opacity duration-700" />
                <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14007.58012374!2d77.3694!3d28.6271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a21d8aaec3%3A0x9c1a9a8e5b6b7c8d!2sSector%2062%2C%20Noida%2C%20Uttar%20Pradesh%20201309!5e0!3m2!1sen!2sin!4v1753614000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3893.355152341203!2d77.2816!3d12.7153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bfa353b3b3b3b3b%3A0x3b3b3b3b3b3b3b3b!2sB.M%20Road%2C%20Vijaya%20Nagar%2C%20Ramanagara%2C%20Karnataka%20562159!5e0!3m2!1sen!2sin!4v1753616000000!5m2!1sen!2sin"
                 className="w-full h-full grayscale hover:grayscale-0 contrast-125 transition-all duration-1000 scale-105 group-hover:scale-100"
                 loading="lazy"
               />
@@ -179,7 +179,7 @@ const Footer = () => {
               <div className="flex flex-col">
                 <span className="text-[10px] uppercase font-black tracking-[0.2em] text-white">Live Service</span>
                 <span className="text-[9px] text-slate-500 font-mono italic">
-                  Kitchen Active • Sector 62, Noida – 201309
+                  Kitchen Active • B.M Road, Ramanagara – 562159
                 </span>
               </div>
             </div>
