@@ -92,15 +92,28 @@ const Order = () => {
             <div className="mt-12 p-8 rounded-3xl border border-white/5 bg-white/[0.02]">
                 <h4 className="text-white font-serif mb-6 text-lg">Chef's Recommendations</h4>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {[1, 2].map((_, i) => (
-                        <div key={i} className="group cursor-pointer">
-                            <div className="aspect-square bg-white/5 rounded-2xl mb-3 overflow-hidden border border-white/5">
-                                <div className="w-full h-full bg-gradient-to-br from-primary/20 to-transparent group-hover:scale-110 transition-transform duration-500" />
-                            </div>
-                            <p className="text-xs text-white/60 font-bold group-hover:text-primary transition-colors">Special Sauce</p>
-                            <p className="text-[10px] text-primary">{formatPrice(120)}</p>
-                        </div>
-                    ))}
+                <div className="group cursor-pointer">
+                  <div className="aspect-square bg-white/5 rounded-2xl mb-3 overflow-hidden border border-white/5">
+                    <img
+                      src="https://images.unsplash.com/photo-1472476443507-c7a5948772fc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMDA3fDB8MHxzZWFyY2h8Mnx8c3BlY2lhbCUyMHNhdWNlfGVufDB8fDB8fHww"
+                      alt="Special Sauce"
+                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <p className="text-xs text-white/60 font-bold group-hover:text-primary transition-colors">Special Sauce</p>
+                  <p className="text-[10px] text-primary">{formatPrice(120)}</p>
+                </div>
+                <div className="group cursor-pointer">
+                  <div className="aspect-square bg-white/5 rounded-2xl mb-3 overflow-hidden border border-white/5">
+                    <img
+                      src="https://plus.unsplash.com/premium_photo-1675676619780-ad4bba28ba62?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHNwZWNpYWwlMjBzYXVjZXxlbnwwfHwwfHx8MA%3D%3D"
+                      alt="Special Sauce"
+                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <p className="text-xs text-white/60 font-bold group-hover:text-primary transition-colors">Special Sauce</p>
+                  <p className="text-[10px] text-primary">{formatPrice(120)}</p>
+                </div>
                 </div>
             </div>
           </motion.div>
